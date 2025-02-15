@@ -51,7 +51,6 @@ fun <T : Any> Race(
     config: RaceConfig = RaceConfig(),
     items: List<ChartItem<T>>
 ) {
-    val scope = rememberCoroutineScope()
     val startAnimation = rememberSaveable { mutableStateOf(false) }
     val animation = animateFloatAsState(
         targetValue = if (startAnimation.value) 1f else 0f,
@@ -76,14 +75,6 @@ fun <T : Any> Race(
 
     Canvas(
         modifier = modifier
-            .clip(RoundedCornerShape(24.dp))
-            .clickable {
-                scope.launch {
-                    startAnimation.value = false
-                    delay(200)
-                    startAnimation.value = true
-                }
-            }
     ) {
         val offsetCentralizer = Offset(
             x = if (size.width > size.height) center.x - size.width else 0f,

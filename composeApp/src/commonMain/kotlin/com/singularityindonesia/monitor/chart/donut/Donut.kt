@@ -46,7 +46,6 @@ fun <T : Any> Donut(
     config: DonutConfig = DonutConfig(),
     items: List<ChartItem<T>>
 ) {
-    val scope = rememberCoroutineScope()
     val startAnimation = rememberSaveable { mutableStateOf(false) }
     val animation = animateFloatAsState(
         targetValue = if (startAnimation.value) 1f else 0f,
@@ -72,13 +71,6 @@ fun <T : Any> Donut(
 
     Canvas(
         modifier = Modifier
-            .clickable {
-                scope.launch {
-                    startAnimation.value = false
-                    delay(200)
-                    startAnimation.value = true
-                }
-            }
             .then(modifier)
     ) {
         val outerDiameter = size.width
