@@ -118,18 +118,22 @@ fun <T : Any> Race(
                     color = racer.item.color,
                 )
 
+                val circleRadius = thickness / 4f
+                val circleCenterStartYPossition = innerDiameter/2 + radius
+                val circleSweepAngleRad = sweepAngleDegrees / 180 * 4f
+
                 drawCircle(
                     color = racer.item.color,
-                    radius = thickness / 4f,
-                    center = center - Offset(x = 0f, y= innerDiameter/2 + thickness/4)
+                    radius = circleRadius,
+                    center = center - Offset(x = 0f, y= circleCenterStartYPossition)
                 )
 
                 drawCircle(
                     color = racer.item.color,
-                    radius = thickness / 4f,
+                    radius = circleRadius,
                     center = center + Offset(
-                        x = (innerDiameter/2 + thickness/4) * sin(sweepAngleDegrees / 180 * 3.14f),
-                        y = - (innerDiameter/2 + thickness/4) * cos(sweepAngleDegrees / 180 * 3.14f)
+                        x = circleCenterStartYPossition * sin(circleSweepAngleRad),
+                        y = - circleCenterStartYPossition * cos(circleSweepAngleRad)
                     )
                 )
             }
