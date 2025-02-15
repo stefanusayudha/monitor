@@ -119,7 +119,7 @@ fun <T : Any> Race(
                 )
 
                 val circleRadius = thickness / 4f
-                val circleCenterStartYPossition = center.y - (( 1 * .5f * (index + 1)) - 1 /4f) * thickness
+                val circleCenterStartYPossition = center.y - (.5f * (index + 1) - 1 /4f) * thickness
                 val circleSweepAngleRad = sweepAngleDegrees / 180 * 3.14f
 
                 drawCircle(
