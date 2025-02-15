@@ -21,7 +21,6 @@ import com.singularityindonesia.monitor.chart.ChartItem
 import com.singularityindonesia.monitor.chart.FULL_CIRCLE_DEGREE_ANGLE
 import com.singularityindonesia.monitor.chart.Y_AXIS_START_ANGLE
 import com.singularityindonesia.monitor.chart.donut
-import com.singularityindonesia.monitor.chart.donut.DonutConfig
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -43,17 +42,6 @@ private data class Racer<T : Any>(
     val sweepAngleDegrees: Float,
     val startAngleDegrees: Float
 )
-
-@Stable
-class RaceState {
-    fun reset() {
-
-    }
-
-    suspend fun animate() {
-
-    }
-}
 
 @Composable
 fun <T : Any> Race(
