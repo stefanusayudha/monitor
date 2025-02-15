@@ -24,6 +24,8 @@ import com.singularityindonesia.monitor.chart.donut
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import kotlin.math.cos
+import kotlin.math.sin
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
@@ -83,7 +85,6 @@ fun <T : Any> Race(
                 }
             }
     ) {
-
         val offsetCentralizer = Offset(
             x = if (size.width > size.height) center.x - size.width else 0f,
             y = if (size.height > size.width) center.y - size.height else 0f,
@@ -124,6 +125,21 @@ fun <T : Any> Race(
                 drawPath(
                     path = progress,
                     color = racer.item.color,
+                )
+
+                drawCircle(
+                    color = racer.item.color,
+                    radius = thickness / 4f,
+                    center = center - Offset(x = 0f, y= innerDiameter/2 + thickness/4)
+                )
+
+                drawCircle(
+                    color = racer.item.color,
+                    radius = thickness / 4f,
+                    center = center + Offset(
+                        x = (innerDiameter/2 + thickness/4) * sin(sweepAngleDegrees / 180 * 3.14f),
+                        y = - (innerDiameter/2 + thickness/4) * cos(sweepAngleDegrees / 180 * 3.14f)
+                    )
                 )
             }
         }
