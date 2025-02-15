@@ -1,2 +1,2 @@
 ## Simple Dashboard Monitor Tools and Components - with Compose Multiplatform
-![Preview](https://github.com/user-attachments/assets/dd981050-0b9c-4f40-a38f-0be18e2dbed9)
+![racer](https://github.com/user-attachments/assets/9414c254-19a3-48b8-b29b-1d91fe699205)
